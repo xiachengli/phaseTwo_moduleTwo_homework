@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>编辑</title>
+</head>
+<body>
+<span th:text="${#httpServletRequest.getScheme() + '://' + #httpServletRequest.getServerName() + ':' + #request.getServerPort()  + #request.getContextPath() + '/'} "
+      id="contextPath"></span>
+<div style="float: none">
+    <form action="/resume/update" method="post">
+        <table border="1" cellspacing="0" align="center" width="100%">
+            <thead>
+            <tr>
+                <td>
+                    <label>编号：</label>
+                </td>
+                <td>
+                    <input type="text" readonly th:value="${resume.getId()}" name="id">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label> 姓名：</label>
+                </td>
+                <td>
+                    <input type="text" th:value="${resume.getName()}" name="name">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label> 地址：</label>
+                </td>
+                <td>
+                    <input type="text" th:value="${resume.getAddress()}" name="address">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>联系电话：</label>
+                </td>
+                <td>
+                    <input type="text" th:value="${resume.getPhone()}" name="phone">
+                </td>
+            </tr>
+            <!-- 以下是提交 -->
+            <tr>
+                <td colspan="2" style="text-align: center;">
+                    <input type="submit" value="提交"/>
+                </td>
+            </tr>
+            </thead>
+        </table>
+    </form>
+</div>
+</body>
+</html>

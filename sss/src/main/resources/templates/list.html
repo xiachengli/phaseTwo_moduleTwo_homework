@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<body>
+<span th:text="${#httpServletRequest.getScheme() + '://' + #httpServletRequest.getServerName() + ':' + #request.getServerPort()  + #request.getContextPath() + '/'} "
+   id="contextPath"></span>
+<div class="am-g am-g-fixed blog-fixed index-page">
+    <span style="float: right"><a href="/resume/toInsert">新增</a></span>
+    <div class="am-u-md-8 am-u-sm-12">
+        <div th:each="resume :${list}">
+            <article class="am-g blog-entry-article">
+
+                <div class="am-u-lg-6 am-u-md-12 am-u-sm-12 blog-entry-text">
+                    <span class="blog-color"style="font-size: 15px;" th:text="${resume.getId()}"><a>编号</a></span>
+                    <span>&nbsp;&nbsp;&nbsp;</span>
+                    <span style="font-size: 15px;" th:text="'姓名 '+ ${resume.getName()}" />
+                    <span style="font-size: 15px;" th:text="'联系电话 '+ ${resume.getPhone()}" />
+                    <span style="font-size: 15px;" th:text="'家庭地址 '+ ${resume.getAddress()}" />
+                    <span><a th:href="'toUpdate?id='+${resume.getId()}">编辑</a></span>
+                    <span><a th:href="'/resume/delete?id='+${resume.getId()}">删除</a></span>
+                    </td>
+                </div>
+            </article>
+        </div>
+
+    </div>
+</div>
+</body>
+</html>
