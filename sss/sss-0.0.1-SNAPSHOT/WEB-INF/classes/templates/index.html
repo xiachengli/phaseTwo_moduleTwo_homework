@@ -1,0 +1,41 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>用户登录</title>
+    <style>
+        .txtBox {
+            padding: 3px;
+            width: 250px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+<span th:text="${#httpServletRequest.getScheme() + '://' + #httpServletRequest.getServerName() + ':' + #request.getServerPort()  + #request.getContextPath() + '/'} "
+      id="contextPath"></span>
+<div align="center">
+    <form name="form1" method="post" action="/resume/login">
+        <table>
+            <caption>用户登录</caption>
+            <tr>
+                <th>账号：</th>
+                <td>
+                    <input type="text" name="username" class="txtBox"/>
+                </td>
+            </tr>
+            <tr>
+                <th>密码：</th>
+                <td>
+                    <input type="password" name="password" class="txtBox"/>
+                </td>
+            </tr>
+            <!-- 以下是提交 -->
+            <tr>
+                <td colspan="2" style="text-align: center;">
+                    <input type="submit" value="登录"/>
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
+</body>
+</html>
